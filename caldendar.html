@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body{
+            background: #2a418f;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .container{
+            position: absolute;
+            border: 5px solid black;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            margin-top: 15vw;
+            left: 50%;
+            margin-left: -100px;
+            z-index: -1;
+
+            width: 160px;
+            height: auto;
+        }
+        #number{
+            position: relative;
+            background-color: white;
+            border: 5px solid black;
+            padding-top: 30px;
+
+            width: 150px;
+            height: 90px;
+            
+            text-align: center;
+            font-size: 50px;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            vertical-align: middle;
+        }
+        #week{
+            position: relative;
+            background-color: white;
+            border: 5px solid black;
+            padding-top: 20px;
+
+            width: 150px;
+            height: 40px;
+
+            text-align: center;
+            font-size: 100%;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            vertical-align: middle;
+        }
+        #hour{
+            position: relative;
+            background-color: white;
+            border: 5px solid black;
+            padding-top: 15px;
+
+            width: 150px;
+            height: 30px;
+
+            text-align: center;
+            font-size: 100%;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            vertical-align: middle;
+        }
+        .button{
+            float: right;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        }
+        .background{
+            position: relative;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 3px;
+            text-align: center;
+            width: 300px;
+            z-index: 1;
+            padding: 10px;
+            float: right;
+        }
+        .background:not(:hover){
+            opacity: 0.1;
+        }   
+        .link{
+            display: inline-block;
+            margin: 5px;
+            height: 27px;
+            vertical-align:bottom;
+        }
+        .color{
+            display: inline-block;
+            margin: 5px;
+            height: 27px;
+            vertical-align:bottom;
+        }
+    </style>
+</head>
+<body id="body" onload="date(), hour()" >
+    <div class="container">
+        <div id="number"></div>
+        <div id="week"></div>
+        <div id="hour"></div>
+    </div>
+    <div class="background">
+        <h3>Change Background</h3>
+        <div class="link ">
+            <input type="text" id="newLink" placeholder="new link"></input><button onclick="changeBackground(getElementById('newLink').value, null)">Use Link</button>
+        </div>
+        <div class="color">
+            <input class="color" type="color" id="newColor"><button class="color" onclick="changeBackground(null, getElementById('newColor').value)">Use Color</button>
+        </div>
+    </div>
+    <script>
+        function date(){
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const date = new Date();
+
+            var number = date.getDate();
+            var month = months[date.getMonth()];
+
+            document.getElementById("number").innerHTML = number;
+            document.getElementById("week").innerHTML = month;
+        }
+        function hour(){
+            var display = new Date().toLocaleTimeString();
+            document.getElementById("hour").innerHTML = display;
+            setTimeout(hour, 1000); 
+        }
+        function changeBackground(link, color){
+            if(link==null){
+                console.log(color);
+                document.getElementById("body").style.background=color;
+            }else{
+                console.log(link);
+                console.log(document.getElementById("body").style.backgroundImage="URL('"+link+"')");
+                document.getElementById("body").style.backgroundImage="URL('"+link+"')";
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

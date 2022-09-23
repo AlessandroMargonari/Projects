@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <head>
+        <style>
+        .container{
+            position: relative;
+            margin:auto;
+            padding: 50px 0;
+            width:300px;
+          }
+          .circleOut{
+            height:300px;
+            width:300px;
+            border-radius:50%;
+            background: linear-gradient(90deg, #89f7fe 0%, #66a6ff 40%);
+            animation-name: load;
+            animation-duration: 5s;
+            animation-direction:right;
+            animation-iteration-count: infinite;
+            animation-timing-function:linear
+          }
+          .circleIn{
+            position: absolute;
+            margin: 25px;
+            height:250px;
+            width:250px;
+            border-radius:50%;
+            background-color:white;
+          }
+          @keyframes load {
+            100%{ transform: rotate(360deg); }
+          }
+        </style> 
+    </head>
+    <body>
+        <div class="container">
+            <div class="circleOut">
+            <div class="circleIn">
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
