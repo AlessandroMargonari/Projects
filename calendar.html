@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        html{
+            background: #2a418f;
+        }
+        body{
+            background: #2a418f;
+            margin: 0;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            font-family: 'Brush Script MT';
+        }
+        .container{
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            font-size: 30px;
+            border: 3px solid black;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .inContainer{
+            border-bottom: 3px solid black;
+            text-align: center;
+            padding: 1rem 0.5em;
+        }
+        .inContainer:last-of-type{
+            border: none;
+        }
+        h3{
+            text-align: center;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        .background{
+            background-color: white;
+            max-width: 300px;
+            width: 100vw;
+            height: 180px;
+            padding: 15px;
+            border-radius: 5px;
+            opacity: 0.1;
+            display: inline-block;
+            margin: 10px;
+        }
+        .background:hover{
+            opacity: 1;
+        }
+        label{
+            display: block;
+        }
+        input{
+            width: 68%;
+            box-sizing: border-box;
+            height: 30px;
+            margin-bottom: 10px;
+        }
+        button{
+            width: 28%;
+            height: 30px;
+            float: right;
+        }
+        .full{
+            width: 100%;
+        }
+    </style>
+</head>
+<body id="body" onload="date(), hour()" >
+    <main>
+        <div class="background">
+            <h3>Change Background</h3>
+            <label>
+                <input type="text" id="newLink" placeholder="new link"></input>
+                <button onclick="changeBackground(getElementById('newLink').value, null)">Use Link</button>
+            </label>
+            <label>
+                <input type="color" id="newColor">
+                <button onclick="changeBackground(null, getElementById('newColor').value)">Use Color</button>
+            </label>
+            <label>
+                <input type="text" id="newFont" placeholder="New font">
+                <button onclick="changeFont(getElementById('newFont').value)">Use Font</button>
+            </label>
+            <label>
+                <button class="full" id=btnFullScreen onclick=fullscreen()>Fullscreen</button>
+            </label>
+        </div>
+
+        <div class="container">
+            <div class="inContainer" id="number">Day</div>
+            <div class="inContainer" id="week">Week</div>
+            <div class="inContainer" id="hour">Hour</div>
+        </div>
+    </main>
+    <script>
+        function date(){
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const date = new Date();
+
+            var number = date.getDate();
+            var month = months[date.getMonth()];
+
+            document.getElementById("number").innerHTML = number;
+            document.getElementById("week").innerHTML = month;
+        }
+        function hour(){
+            var display = new Date().toLocaleTimeString();
+            document.getElementById("hour").innerHTML = display;
+            setTimeout(hour, 1000); 
+        }
+        function changeBackground(link, color){
+            if(link==null){
+                console.log(color);
+                document.getElementById("body").style.background=color;
+            }else{
+                console.log(link);
+                console.log(document.getElementById("body").style.backgroundImage="URL('"+link+"')");
+                document.getElementById("body").style.backgroundImage="URL('"+link+"')";
+            }
+        }
+        function changeFont(newFont){
+            if(newFont != null){
+                document.getElementById("body").style.fontFamily="newFont";
+            }
+        }
+        function fullscreen(){
+        var elem = document.getElementById("body");
+
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+        }
+    </script>
+</body>
+</html>
