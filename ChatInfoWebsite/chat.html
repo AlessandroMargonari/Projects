@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="style.css">
+
+<body>
+  <h1>Your website</h1>
+  <section>
+    <div class="chat-box" id="chat">
+      <div id="messages">
+        <p class="msgRight">Report the problem here</p>
+      </div>
+      <form method="post" onsubmit="return false">
+        <input type="text" id="msgInput" maxlength="120">
+        <button id="sendMsg" onclick="send()">
+          <img src="https://cdn-icons-png.flaticon.com/512/2983/2983788.png" height="20px">
+        </button>
+      </form>
+    </div>
+    <button class="btnChat" onclick="openChat()">
+      <img class=" chatImage" src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png">
+    </button>
+  </section>
+</body>
+
+<script type="text/javascript" src="script.js"></script>

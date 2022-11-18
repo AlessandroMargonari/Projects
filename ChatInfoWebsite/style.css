@@ -1,0 +1,80 @@
+.btnChat {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  border: none;
+  height: 100px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+#sendMsg{
+  display:inline-block;
+  position: absolute;
+  background-color: white;
+  border: none;
+}
+
+.chatImage {
+  background-color: transparent;
+  height: 100px;
+  width: auto;
+}
+
+.chat-box {
+  visibility: hidden;
+  position: abosolute;
+  width: auto;
+  height: auto;
+  max-height: 400px;
+  overflow: auto;
+  position: absolute;
+  bottom: 150px;
+  right: 40px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 35px 9px #ccc;
+  padding: 20px;
+}
+
+.close {
+  display: inline-block;
+  background-color: gray;
+  border: 1px solid;
+  float: right;
+}
+
+.msgOut {
+  visibility: hidden;
+}
+
+.msgRight {
+  position: relative;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: gray;
+  width: 150px;
+  height: auto;
+  text-align: left;
+  font: 400 0.9em "Open Sans", sans-serif;
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+}
+
+.msgLeft {
+  overflow-wrap: break-word;
+  position: relative;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #5a5eb9;
+  width: 150px;
+  height: auto;
+  text-align: left;
+  font: 400 0.9em "Open Sans", sans-serif;
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
