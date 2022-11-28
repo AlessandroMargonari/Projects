@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar</title>
+    <style>
+        :root {
+            --darkLine: #008000;
+            --lightLine: rgb(0, 217, 0);
+            --bg: rgb(45, 45, 45);
+            --shadow: #006b00;
+        }
+        body {
+            background-color: rgb(23, 23, 23);
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .line {
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .out {
+            height: 200px;
+            width: 200px;
+            border: 2px solid var(--lightLine);
+            background-color: var(--bg);
+        }
+        .radarLine {
+            z-index: 2;
+            position: absolute;
+            margin-left: 100px;
+            width: 100px;
+            height: 2px;
+            border-top-left-radius: 1px;
+            border-bottom-left-radius: 1px;
+            background-color: var(--darkLine);
+            box-shadow: 10px -7px 10px var(--shadow);
+            transform-origin: left;
+            animation-iteration-count: infinite;
+            animation-name: rotate;
+            animation-duration: 7s;
+            animation-timing-function: linear;
+        }
+
+        .in {
+            border: 1px solid var(--lightLine);
+        }
+        .in1 {
+            height: 150px;
+            width: 150px;
+        }
+        .in2 {
+            height: 100px;
+            width: 100px;
+        }
+        .in3 {
+            height: 50px;
+            width: 50px;
+        }
+
+        .ping{
+            z-index: 1;
+            width: 6px;
+            height: 6px;
+            border-radius: 3px;
+            background-color: var(--lightLine);
+            opacity: 0;
+        }
+        .p1{
+            position: absolute;
+            margin-left: -92px;
+            margin-top: 6px;
+
+            animation-name: ping;
+            animation-delay: 3.4s;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+        }
+        .p2{
+            position: absolute;
+            margin-left: 23px;
+            margin-top: -10px;
+
+            animation-name: ping;
+            animation-delay: 6.5s;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+        }
+        .p3{
+            position: absolute;
+            margin-left: -13px;
+            margin-top: 92px;
+
+            animation-name: ping;
+            animation-delay: 1.8s;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+        }
+        .p4{
+            position: absolute;
+            margin-left: 100px;
+            margin-top: -90px;
+
+            animation-name: ping;
+            animation-delay: 6.1s;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes ping {
+            0% { opacity: 0; box-shadow: 0px 0px 0px grey; }
+            40% { opacity: 1;  box-shadow: 0px 0px 10px grey; }
+            50% { opacity: 0.5;  box-shadow: 0px 0px 10px grey; }
+            100% { opacity: 0;  box-shadow: 0px 0px 0px grey; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="line out">
+        <div class="radarLine"></div>
+        <div class="ping p1"></div>
+        <div class="ping p2"></div>
+        <div class="ping p3"></div>
+        <div class="ping p4"></div>
+        <div class="line in in1">
+            <div class="line in in2">
+                <div class="line in in3">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
