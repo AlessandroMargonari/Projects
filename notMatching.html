@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --backgroundOut:rgb(23, 23, 23);
+            --backgroundIn: #517d59;
+            --triangle: #9c4a23;
+            --rectangle: #f5fdff;
+            --line-left: #2a3c20;
+            --line-right: #819d7f;
+            --lineIn-left: #4e3013;
+            --lineIn-right: #819d7f;
+        }
+        body {
+            background-color: var(--backgroundOut);
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            height: 400px;
+            width: 350px;
+            background-color: var(--backgroundIn);
+        }
+        .triangle{
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 100px 270px 100px;
+            border-color: transparent transparent var(--triangle) transparent;
+        }
+        .line{
+            z-index: 2;
+            position: absolute;
+            width: 0px;
+            height: 400px;
+            background-color: var(--backgroundIn);
+        }
+        .rectangle{
+            position: absolute;
+            width: 70px;
+            height: 300px;
+            background-color: var(--rectangle);
+        }
+        .circle{
+            z-index: 3;
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 150px 140px;
+            background-color:var(--backgroundIn);   
+            overflow: hidden;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 3px var(--line-left);
+
+            animation-name: rotate;
+            animation-iteration-count: infinite;
+            animation-duration: 7s;
+            /*
+            tri: -20deg
+            line: 0deg
+            rect: -10deg
+            */
+        }
+
+        .triangle-out{
+            z-index: 1;
+            margin: 50px 50px;
+        }
+        .line-out{
+            margin: 0 210px;
+            border-left: 5px solid var(--line-left);
+            border-right: 5px solid var(--line-right);
+        }
+        .rectangle-out{
+            margin: 50px 240px;
+        }
+        .triangle-in{
+            margin: -100px -72px;
+            transform: rotate(20deg);
+        }
+        .line-in{
+            margin: -80px 70px;
+            width: 0;
+            border-left: 5px solid var(--lineIn-left);
+            border-right: 5px solid var(--lineIn-right);
+        }
+        .rectangle-in{
+            margin: -50px 97px;
+            transform: rotate(10deg);
+        }
+
+        @keyframes rotate {
+            0%{
+                transform: rotate(0deg);
+            }
+            12%{
+                transform: rotate(-20deg);
+            }
+            24%{
+                transform: rotate(-20deg);
+            }
+            36%{
+                transform: rotate(0deg);
+            }
+            48%{
+                transform: rotate(0deg);
+            }
+            60%{
+                transform: rotate(-10deg);
+            }
+            72%{
+                transform: rotate(-10deg);
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="triangle triangle-out"></div>
+        <div class="line line-out "></div>
+        <div class="rectangle rectangle-out"></div>
+
+        <div class="circle">
+            <div class="triangle triangle-in"></div>
+            <div class="line line-in"></div>
+            <div class="rectangle rectangle-in"></div>
+        </div>
+    </div>
+</body>
+</html>
